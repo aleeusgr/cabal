@@ -312,7 +312,7 @@ writeDirectoriesSafe opts dirs = fmap or $ for dirs $ \dir -> do
           createDirectory dir
       | exists && doOverwrite = do
           newDir <- findNewPath dir
-          message opts T.Info
+          message opts T.Log $
             concat
               [ dir
               , " already exists. Backing up old version in "
